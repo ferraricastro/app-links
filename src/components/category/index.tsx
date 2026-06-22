@@ -1,14 +1,23 @@
-import { Text, Pressable } from "react-native"
 import { MaterialIcons } from "@expo/vector-icons"
+import { Pressable, Text, PressableProps } from "react-native"
 
 import { colors } from "@/styles/colors"
 import { styles } from "./styles"
 
-export function Category() {
-  return(
-    <Pressable style={styles.container}>
-      <MaterialIcons name="code" size={16} color={colors.gray[400]}></MaterialIcons>
-      <Text style={styles.name}>Projetos</Text>
+type Props = PressableProps & {
+  name: string
+  icon: keyof typeof MaterialIcons.glyphMap
+}
+
+export function Category({ name, icon, ...rest }: Props) {
+  return (
+    <Pressable style={styles.container} {...rest}>
+      <MaterialIcons
+        name={icon}
+        size={16}
+        color={colors.gray[400]}
+      ></MaterialIcons>
+      <Text style={styles.name}>{name}</Text>
     </Pressable>
   )
 }
