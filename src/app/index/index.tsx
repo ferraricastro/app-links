@@ -4,6 +4,8 @@ import { Image, TouchableOpacity, View } from "react-native"
 import { colors } from "@/styles/colors"
 import { styles } from "./styles"
 
+import { Category } from "@/components/category"
+
 export default function Index() {
   return (
     <View style={styles.container}>
@@ -17,6 +19,8 @@ export default function Index() {
           ></MaterialIcons>
         </TouchableOpacity>
       </View>
+
+      <Category />
     </View>
   )
 }
