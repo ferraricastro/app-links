@@ -3,8 +3,9 @@ import { Image, TouchableOpacity, View } from "react-native"
 
 import { colors } from "@/styles/colors"
 import { styles } from "./styles"
-import { categories } from "@/utils/categories"
+
 import { Categories } from "@/components/categories"
+import { Link } from "@/components/link"
 
 export default function Index() {
   return (
@@ -22,7 +23,11 @@ export default function Index() {
 
       <Categories />
 
-
+      <Link
+        name="Moxfield - Perfil ferraricastro"
+        url="https://moxfield.com/users/ferraricastro"
+        onDetails={() => console.log("Clicou!")}
+      />
     </View>
   )
 }
