@@ -1,11 +1,19 @@
 import { MaterialIcons } from "@expo/vector-icons"
-import { FlatList, Image, TouchableOpacity, View, Modal, Text } from "react-native"
+import {
+  FlatList,
+  Image,
+  Modal,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native"
 
 import { colors } from "@/styles/colors"
 import { styles } from "./styles"
 
 import { Categories } from "@/components/categories"
 import { Link } from "@/components/link"
+import { Option } from "@/components/option"
 
 export default function Index() {
   return (
@@ -42,6 +50,7 @@ export default function Index() {
           <View style={styles.modalContent}>
             <View style={styles.modalHeader}>
               <Text style={styles.modalCategory}>Site</Text>
+
               <TouchableOpacity>
                 <MaterialIcons
                   name="close"
@@ -50,12 +59,19 @@ export default function Index() {
                 />
               </TouchableOpacity>
             </View>
+
             <Text style={styles.modalLinkName}>
               Moxfield - Perfil ferraricastro
             </Text>
+
             <Text style={styles.modalUrl}>
               https://moxfield.com/users/ferraricastro
             </Text>
+
+            <View style={styles.modalFooter}>
+              <Option name="Excluir" icon="delete" variant="secondary" />
+              <Option name="Abrir" icon="language" />
+            </View>
           </View>
         </View>
       </Modal>
