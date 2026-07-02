@@ -1,5 +1,5 @@
 import { MaterialIcons } from "@expo/vector-icons"
-import { FlatList, Image, TouchableOpacity, View } from "react-native"
+import { FlatList, Image, TouchableOpacity, View, Modal, Text } from "react-native"
 
 import { colors } from "@/styles/colors"
 import { styles } from "./styles"
@@ -24,13 +24,7 @@ export default function Index() {
       <Categories />
 
       <FlatList
-        data={[
-          "1",
-          "2",
-          "3",
-          "4",
-          "5",
-        ]}
+        data={["1", "2", "3", "4", "5"]}
         keyExtractor={(item) => item}
         renderItem={() => (
           <Link
@@ -42,6 +36,29 @@ export default function Index() {
         style={styles.links}
         contentContainerStyle={styles.linksContent}
       />
+
+      <Modal transparent visible>
+        <View style={styles.modal}>
+          <View style={styles.modalContent}>
+            <View style={styles.modalHeader}>
+              <Text style={styles.modalCategory}>Site</Text>
+              <TouchableOpacity>
+                <MaterialIcons
+                  name="close"
+                  size={20}
+                  color={colors.gray[400]}
+                />
+              </TouchableOpacity>
+            </View>
+            <Text style={styles.modalLinkName}>
+              Moxfield - Perfil ferraricastro
+            </Text>
+            <Text style={styles.modalUrl}>
+              https://moxfield.com/users/ferraricastro
+            </Text>
+          </View>
+        </View>
+      </Modal>
     </View>
   )
 }
