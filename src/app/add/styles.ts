@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     paddingHorizontal: 24,
-    marginBottom: 24,
+    marginBottom: 20,
   },
   title: {
     color: colors.gray[200],
