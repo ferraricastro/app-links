@@ -1,5 +1,8 @@
-import { useState } from "react"
+import { MaterialIcons } from "@expo/vector-icons"
+import { router } from "expo-router"
+import { useEffect, useState } from "react"
 import {
+  Alert,
   FlatList,
   Image,
   Modal,
@@ -7,25 +10,38 @@ import {
   TouchableOpacity,
   View,
 } from "react-native"
-import { MaterialIcons } from "@expo/vector-icons"
-import { router } from "expo-router"
 
+import { linkStorage, LinkStorage } from "@/storage/link-storage"
 import { colors } from "@/styles/colors"
-import { styles } from "./styles"
 import { categories } from "@/utils/categories"
+import { styles } from "./styles"
 
 import { Categories } from "@/components/categories"
 import { Link } from "@/components/link"
 import { Option } from "@/components/option"
 
 export default function Index() {
+  const [links, setLinks] = useState<LinkStorage[]>([])
   const [category, setCategory] = useState(categories[0].name)
+
+  async function getLinks() {
+    try {
+      const response = await linkStorage.get()
+      setLinks(response)
+    } catch (error) {
+      Alert.alert("Erro", "Não foi possível listar os links")
+    }
+  }
+
+  useEffect(() => {
+    getLinks()
+  }, [category])
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Image source={require("@/assets/logo.png")} style={styles.logo} />
-        <TouchableOpacity  onPress={() => router.navigate("/add")}>
+        <TouchableOpacity onPress={() => router.navigate("/add")}>
           <MaterialIcons
             name="add"
             size={32}
@@ -37,12 +53,12 @@ export default function Index() {
       <Categories onChange={setCategory} selected={category} />
 
       <FlatList
-        data={["1", "2", "3", "4", "5"]}
-        keyExtractor={(item) => item}
-        renderItem={() => (
+        data={links}
+        keyExtractor={(item) => item.id}
+        renderItem={({item}) => (
           <Link
-            name="Moxfield - Perfil ferraricastro"
-            url="https://moxfield.com/users/ferraricastro"
+            name={item.name}
+            url={item.url}
             onDetails={() => console.log("Clicou!")}
           />
         )}
