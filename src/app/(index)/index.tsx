@@ -27,15 +27,20 @@ export default function Index() {
   async function getLinks() {
     try {
       const response = await linkStorage.get()
-      setLinks(response)
+
+      const filtered = response.filter((link) => link.category === category)
+
+      setLinks(filtered)
     } catch (error) {
       Alert.alert("Erro", "Não foi possível listar os links")
     }
   }
 
- useFocusEffect(useCallback(() => {
-  getLinks()
- }, []))
+  useFocusEffect(
+    useCallback(() => {
+      getLinks()
+    }, [category]),
+  )
 
   return (
     <View style={styles.container}>
@@ -55,7 +60,7 @@ export default function Index() {
       <FlatList
         data={links}
         keyExtractor={(item) => item.id}
-        renderItem={({item}) => (
+        renderItem={({ item }) => (
           <Link
             name={item.name}
             url={item.url}
