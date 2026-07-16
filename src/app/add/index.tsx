@@ -1,7 +1,7 @@
 import { MaterialIcons } from "@expo/vector-icons"
 import { router } from "expo-router"
 import { useState } from "react"
-import { Text, TouchableOpacity, View, Alert } from "react-native"
+import { Alert, Text, TouchableOpacity, View } from "react-native"
 
 import { colors } from "@/styles/colors"
 import { styles } from "./styles"
@@ -9,26 +9,40 @@ import { styles } from "./styles"
 import { Button } from "@/components/button"
 import { Categories } from "@/components/categories"
 import { Input } from "@/components/input"
+import { linkStorage } from "@/storage/link-storage"
 
 export default function Add() {
   const [category, setCategory] = useState("")
   const [name, setName] = useState("")
   const [url, setUrl] = useState("")
 
-  function handleAdd() {
-    if(!category){
-      return Alert.alert("Categoria", "Selecione uma categoria")
-    }
+  async function handleAdd() {
+    try {
+      if (!category) {
+        return Alert.alert("Categoria", "Selecione uma categoria")
+      }
 
-    if(!name.trim()){
-      return Alert.alert("Nome", "Informe um nome")
-    }
+      if (!name.trim()) {
+        return Alert.alert("Nome", "Informe um nome")
+      }
 
-    if (!url.trim()) {
-      return Alert.alert("Url", "Informe uma Url")
-    }
+      if (!url.trim()) {
+        return Alert.alert("Url", "Informe uma Url")
+      }
 
-    console.log({ category, name, url })
+      await linkStorage.save({
+        id: new Date().getTime().toString(),
+        name,
+        url,
+        category,
+      })
+
+      const data = await linkStorage.get()
+      console.log(data)
+    } catch (error) {
+      Alert.alert("Erro", "Não foi possível salvar o link")
+      console.log(error)
+    }
   }
 
   return (
