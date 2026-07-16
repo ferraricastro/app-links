@@ -64,7 +64,6 @@ export default function Add() {
           placeholder="Nome"
           onChangeText={setName}
           autoCorrect={false}
-          autoCapitalize="none"
         />
         <Input
           placeholder="Url"
