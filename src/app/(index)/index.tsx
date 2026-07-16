@@ -9,6 +9,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Linking,
 } from "react-native"
 
 import { linkStorage, LinkStorage } from "@/storage/link-storage"
@@ -59,6 +60,15 @@ export default function Index() {
       { text: "Sim", onPress: linkRemove },
       { style: "cancel", text: "Não" },
     ])
+  }
+
+  async function handleOpen() {
+    try {
+      await Linking.openURL(link.url)
+      setShowModal(false)
+    } catch (error) {
+      Alert.alert("Link", "Não foi possível abrir o link")
+    }
   }
 
   useFocusEffect(
@@ -115,8 +125,13 @@ export default function Index() {
             <Text style={styles.modalUrl}>{link.url}</Text>
 
             <View style={styles.modalFooter}>
-              <Option name="Excluir" icon="delete" variant="secondary" onPress={handleRemove}/>
-              <Option name="Abrir" icon="language" />
+              <Option
+                name="Excluir"
+                icon="delete"
+                variant="secondary"
+                onPress={handleRemove}
+              />
+              <Option name="Abrir" icon="language" onPress={handleOpen}/>
             </View>
           </View>
         </View>
