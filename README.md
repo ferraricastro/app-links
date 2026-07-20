@@ -10,9 +10,11 @@ A modern mobile app built with React Native and Expo to save, organize, and acce
 > Read this project in [Português](README.pt-BR.md).
 
 ## About the project
+
 Links is a mobile application built with React Native and Expo to help you save, organize, and access your favorite links by category. Users can add new links, assign a category, open the link in a browser, and remove entries when needed.
 
 ### ✨ Features
+
 - Add links with name, URL, and category
 - Organize links by category
 - Open links directly in the browser
@@ -28,6 +30,7 @@ Links is a mobile application built with React Native and Expo to help you save,
 ![Link details](assets/screenshots/link-details.jpeg)
 
 ### 🛠️ Tech Stack
+
 - React Native
 - Expo
 - Expo Router
@@ -36,18 +39,22 @@ Links is a mobile application built with React Native and Expo to help you save,
 - React Native Vector Icons
 
 ### Requirements
+
 - Node.js 20+
 - npm or yarn
 - Expo Go on a phone, or an Android/iOS emulator
 
 ### 🚀 Installation
+
 1. Clone the repository:
+
    ```bash
    git clone <your-repository>
    cd app-links
    ```
 
 2. Install dependencies:
+
    ```bash
    npm install
    ```
@@ -58,6 +65,7 @@ Links is a mobile application built with React Native and Expo to help you save,
    ```
 
 ### 📁 Project structure
+
 ```text
 src/
   app/           # app screens and routes
@@ -68,7 +76,9 @@ src/
 ```
 
 ### 🤝 Contributing
+
 Contributions are welcome. Feel free to open an issue or submit a pull request with improvements.
 
 ### 📄 License
+
 This project is licensed under the MIT License.
