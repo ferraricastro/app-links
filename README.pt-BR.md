@@ -22,9 +22,9 @@ Links é um aplicativo mobile desenvolvido com React Native e Expo para ajudar v
 ### 📱 Capturas de tela
 
 <p align="center">
-  <img src="assets/screenshots/home.jpeg" alt="Home" width="180" />
-  <img src="assets/screenshots/add-links.jpeg" alt="Adicionar link" width="180" />
-  <img src="assets/screenshots/link-details.jpeg" alt="Detalhes do link" width="180" />
+  <img src="assets/screenshots/home.jpeg" alt="Home" width="230" />
+  <img src="assets/screenshots/link-details.jpeg" alt="Detalhes do link" width="230" />
+  <img src="assets/screenshots/add-links.jpeg" alt="Adicionar link" width="230" />
 </p>
 
 ### 🛠️ Tecnologias utilizadas

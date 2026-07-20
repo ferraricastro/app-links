@@ -24,9 +24,9 @@ Links is a mobile application built with React Native and Expo to help you save,
 ### 📱 Screenshots
 
 <p align="center">
-  <img src="assets/screenshots/home.jpeg" alt="Home" width="180" />
-  <img src="assets/screenshots/add-links.jpeg" alt="Add link" width="180" />
-  <img src="assets/screenshots/link-details.jpeg" alt="Link details" width="180" />
+  <img src="assets/screenshots/home.jpeg" alt="Home" width="230" />
+  <img src="assets/screenshots/link-details.jpeg" alt="Link details" width="230" />
+  <img src="assets/screenshots/add-links.jpeg" alt="Add link" width="230" />
 </p>
 
 ### 🛠️ Tech Stack
